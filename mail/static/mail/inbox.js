@@ -151,10 +151,12 @@ function reply_email(email) {
   document.querySelector('#view-emails').style.display = 'none';
 
   document.querySelector('#compose-recipients').value = `${email.sender}`;
-  if (email.subject.substring(0,2) === "Re:") {
+  if (email.subject.substring(0,3) === "Re:") {
     document.querySelector('#compose-subject').value = `${email.subject}`;
+    console.log(email.subject.substring(0,3));
   } else {
     document.querySelector('#compose-subject').value = `Re: ${email.subject}`;
+    console.log(email.subject.substring(0,3));
   }
   document.querySelector('#compose-body').value = `On ${email.timestamp} ${email.sender} wrote: "${email.body}"`;
 }
