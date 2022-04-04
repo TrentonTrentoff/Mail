@@ -27,3 +27,6 @@ class Email(models.Model):
             "read": self.read,
             "archived": self.archived
         }
+
+    def is_valid_email(self):
+        return self.subject != None or self.body != None
